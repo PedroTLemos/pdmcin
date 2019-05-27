@@ -3,11 +3,11 @@ package Atributos;
 public class RepositorioAtributosArray implements RepositorioAtributos{
 	private Atributo[] atributos;
 	private int i;
-	public RepositorioAtributosArray (int tamanho) {
-		atributos = new Atributo[tamanho];
+	public RepositorioAtributosArray () {
+		atributos = new Atributo[27];
 	}
-	public void inserir_atributo(String atributo, int valor) throws ANEException {
-		switch (atributo) {
+	public void inserir(Atributo atributo) throws ANEException {
+		switch (atributo.getNome()) {
 		case "Forca":
 		case "Destreza":
 		case "Constituiçao":
@@ -16,12 +16,12 @@ public class RepositorioAtributosArray implements RepositorioAtributos{
 		case "Carisma":
 			break;
 		default:
-			throw new ANEException(atributo);
+			throw new ANEException(atributo.getNome());
 		}
-		atributos[i] = new Atributo(atributo, valor);
+		atributos[i] = atributo;
 		i++;
 	}
-	public void diga_classe_raca(String classe, String raca) throws CNEException {
+	public void digaClasseRaca(String classe, String raca) throws CNEException {
 		switch (classe) {
 		case "Mago":
 		case "Guerreiro":
@@ -38,5 +38,48 @@ public class RepositorioAtributosArray implements RepositorioAtributos{
 		default:
 			throw new CNEException(raca);
 		}
+	}
+	public void atualizar(Atributo atributo) throws ANEException {
+		boolean checar_atualizar = false;
+		for (int i = 0; i < atributos.length; i++) {
+			if(atributos[i].getNome().equals(atributo.getNome())) {
+				atributos[i] = atributo;
+				checar_atualizar = true;
+			}if(i == atributos.length - 1 && !(checar_atualizar)) {
+				throw new ANEException(atributo.getNome());
+			}
+		}
+	}
+	public void remover(String atributo) throws ANEException {
+		boolean checar_remocao = false;
+		for (int i = 0; i < atributos.length; i++) {
+			if(atributos[i].getNome().equals(atributo)) {
+				this.i = i;
+				atributos[i] = null;
+				checar_remocao = true;
+			}if(i == atributos.length - 1 && !(checar_remocao)) {
+				throw new ANEException(atributo);
+			}
+		}
+	}
+	public Atributo procurar(String atributo) throws ANEException {
+		boolean checar_existe = false;
+		Atributo aux = null;
+		for (int i = 0; i < atributos.length; i++) {
+			if(atributos[i].getNome().equals(atributo)) {
+				aux = atributos[i];
+				checar_existe = true;
+			}if(i == atributos.length - 1 && !(checar_existe)) {
+				throw new ANEException(atributo);
+			}
+		}
+		return aux;
+	}
+	public boolean existe(String atributo) {
+		for (int i = 0; i < atributos.length; i++) {
+			if(atributos[i].getNome().equals(atributo))
+				return true;
+		}
+		return false;
 	}
 }
