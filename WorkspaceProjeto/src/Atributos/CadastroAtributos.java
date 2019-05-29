@@ -12,7 +12,7 @@ public class CadastroAtributos {
 			throw new AtributoJaCadastradoException(atributo);
 		}
 	}
-	public void dizerClasseERaca(String classe, String raca) throws CNEException{
+	public void dizerClasseERaca(String classe, String raca) throws CNEException, ANEException{
 		atributos.digaClasseRaca(classe, raca);
 	}
 	public void atualizar(Atributo atributo) throws ANEException{
