@@ -5,7 +5,7 @@ public class CadastroAtributos {
 	public CadastroAtributos(RepositorioAtributos rep) {
 		atributos = rep;
 	}
-	public void cadastrar(Atributo atributo) throws AtributoJaCadastradoException, ANEException{
+	public void cadastrar(Atributo atributo) throws AtributoJaCadastradoException{
 		if(!atributos.existe(atributo.getNome())) {
 			atributos.inserir(atributo);
 		}else {
@@ -16,12 +16,15 @@ public class CadastroAtributos {
 		atributos.digaClasseRaca(classe, raca);
 	}
 	public void atualizar(Atributo atributo) throws ANEException{
-		atributos.atualizar(atributo);;
+		atributos.atualizar(atributo);
 	}
 	public void remover(String atributo) throws ANEException{
-		atributos.remover(atributo);;
+		atributos.remover(atributo);
 	}
 	public void procurar(String atributo) throws ANEException{
-		atributos.procurar(atributo);;
+		atributos.procurar(atributo);
+	}
+	public String saida() {
+		return atributos.saida();
 	}
 }
