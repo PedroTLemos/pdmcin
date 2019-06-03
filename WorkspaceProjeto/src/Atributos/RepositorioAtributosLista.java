@@ -3,7 +3,6 @@ package Atributos;
 public class RepositorioAtributosLista implements RepositorioAtributos{
 	private AtributoBasico atributo;
 	private RepositorioAtributosLista proximo;
-	public String out = "";
 	public RepositorioAtributosLista() {
 		this.atributo = null;
 		this.proximo = null;
@@ -97,9 +96,9 @@ public class RepositorioAtributosLista implements RepositorioAtributos{
 			return this.proximo.existe(atributo);
 		}
 	}
-	public String saida() {
+	public String saida(String inicial) {
 		if (this.atributo != null) {
-		out += this.atributo.getNome()+": "+this.atributo.getValor();
+		inicial += this.atributo.getNome()+": "+this.atributo.getValor();
 		switch (this.atributo.getNome()) {
 		case "Forca":
 		case "Inteligencia":
@@ -107,12 +106,12 @@ public class RepositorioAtributosLista implements RepositorioAtributos{
 		case "Sabedoria":
 		case "Constituicao":
 		case "Carisma":
-			out += ", Modificador: "+this.atributo.getMod();
+			inicial += ", Modificador: "+this.atributo.getMod();
 		default:
-			out += "\n";
-		}return this.proximo.saida();
+			inicial += "\n";
+		}return this.proximo.saida(inicial);
 		}else {
-			return out;
+			return inicial;
 		}
 	}
 }

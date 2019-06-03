@@ -1,5 +1,8 @@
 package Atributos;
 
+//Classe feita para cadastrar os atributos no sistema, ela serve para simplificar a visualizacao das funcoes
+//presentes nos repositorios, ou seja, e uma camada de negocios.
+
 public class CadastroAtributos {
 	private RepositorioAtributos atributos;
 	public CadastroAtributos(RepositorioAtributos rep) {
@@ -24,7 +27,7 @@ public class CadastroAtributos {
 	public void procurar(String atributo) throws ANEException{
 		atributos.procurar(atributo);
 	}
-	public String saida() {
-		return atributos.saida();
+	public String saida(String inicial) {
+		return atributos.saida(inicial);
 	}
 }

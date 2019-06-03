@@ -27,6 +27,6 @@ public class Teste {
 			System.out.println(j.getMessage());
 			System.out.println(j.getCE()+" nao esta presente nessa versao");
 		}
-		System.out.println(cadastro.saida());
+		System.out.println(cadastro.saida(""));
 	}
 }

@@ -1,9 +1,9 @@
 package Atributos;
 
 public class RepositorioAtributosArray implements RepositorioAtributos{
+	//parte bruta do codigo
 	private AtributoBasico[] atributos;
 	private int i;
-	public String out = "";
 	public RepositorioAtributosArray () {
 		atributos = new AtributoBasico[11];
 	}
@@ -79,7 +79,7 @@ public class RepositorioAtributosArray implements RepositorioAtributos{
 		boolean checar_existe = false;
 		AtributoBasico aux = null;
 		for (int i = 0; i < atributos.length && !checar_existe; i++) {
-			if(atributos[i].getNome().equals(atributo)) {
+			if(atributos[i]!= null && atributos[i].getNome().equals(atributo)) {
 				aux = atributos[i];
 				checar_existe = true;
 			}if(i == atributos.length - 1 && !(checar_existe)) {
@@ -95,9 +95,9 @@ public class RepositorioAtributosArray implements RepositorioAtributos{
 		}
 		return false;
 	}
-	public String saida(){
+	public String saida(String inicial){
 		for (int i = 0; i < atributos.length; i++) {
-			out += atributos[i].getNome()+": "+atributos[i].getValor();
+			inicial += atributos[i].getNome()+": "+atributos[i].getValor();
 			switch (atributos[i].getNome()) {
 			case "Forca":
 			case "Inteligencia":
@@ -105,11 +105,11 @@ public class RepositorioAtributosArray implements RepositorioAtributos{
 			case "Sabedoria":
 			case "Constituicao":
 			case "Carisma":
-				out += ", Modificador: "+atributos[i].getMod();
+				inicial += ", Modificador: "+atributos[i].getMod();
 			default:
-				out += "\n";
+				inicial += "\n";
 			}
 		}
-		return out;
+		return inicial;
 	}
 }
