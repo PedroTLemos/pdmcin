@@ -24,12 +24,12 @@ public class RepositorioAtributosLista implements RepositorioAtributos{
 			break;
 		case "Humano":
 			this.inserir(new Atributo2("Velocidade", 9));
-			this.atualizar(new Atributo2("Forca", this.procurar("Destreza").getValor()+1));
-			this.atualizar(new Atributo2("Destreza", this.procurar("Destreza").getValor()+1));
-			this.atualizar(new Atributo2("Constituicao", this.procurar("Destreza").getValor()+1));
-			this.atualizar(new Atributo2("Inteligencia", this.procurar("Destreza").getValor()+1));
-			this.atualizar(new Atributo2("Sabedoria", this.procurar("Destreza").getValor()+1));
-			this.atualizar(new Atributo2("Carisma", this.procurar("Destreza").getValor()+1));
+			this.atualizar(new Atributo("Forca", this.procurar("Forca").getValor()+1));
+			this.atualizar(new Atributo("Destreza", this.procurar("Destreza").getValor()+1));
+			this.atualizar(new Atributo("Constituicao", this.procurar("Constituicao").getValor()+1));
+			this.atualizar(new Atributo("Inteligencia", this.procurar("Inteligencia").getValor()+1));
+			this.atualizar(new Atributo("Sabedoria", this.procurar("Sabedoria").getValor()+1));
+			this.atualizar(new Atributo("Carisma", this.procurar("Carisma").getValor()+1));
 			break;
 		case "Anao":
 			this.inserir(new Atributo2("Velocidade", 6));
@@ -98,18 +98,18 @@ public class RepositorioAtributosLista implements RepositorioAtributos{
 	}
 	public String saida(String inicial) {
 		if (this.atributo != null) {
-		inicial += this.atributo.getNome()+": "+this.atributo.getValor();
-		switch (this.atributo.getNome()) {
-		case "Forca":
-		case "Inteligencia":
-		case "Destreza":
-		case "Sabedoria":
-		case "Constituicao":
-		case "Carisma":
-			inicial += ", Modificador: "+this.atributo.getMod();
-		default:
-			inicial += "\n";
-		}return this.proximo.saida(inicial);
+			inicial += this.atributo.getNome()+": "+this.atributo.getValor();
+			switch (this.atributo.getNome()) {
+			case "Forca":
+			case "Inteligencia":
+			case "Destreza":
+			case "Sabedoria":
+			case "Constituicao":
+			case "Carisma":
+				inicial += ", Modificador: "+this.atributo.getMod();
+			default:
+				inicial += "\n";
+			}return this.proximo.saida(inicial);
 		}else {
 			return inicial;
 		}

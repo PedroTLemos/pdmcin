@@ -20,12 +20,12 @@ public class RepositorioAtributosArray implements RepositorioAtributos{
 			break;
 		case "Humano":
 			this.inserir(new Atributo2("Velocidade", 9));
-			this.atualizar(new Atributo("Forca", this.procurar("Destreza").getValor()+1));
+			this.atualizar(new Atributo("Forca", this.procurar("Forca").getValor()+1));
 			this.atualizar(new Atributo("Destreza", this.procurar("Destreza").getValor()+1));
-			this.atualizar(new Atributo("Constituicao", this.procurar("Destreza").getValor()+1));
-			this.atualizar(new Atributo("Inteligencia", this.procurar("Destreza").getValor()+1));
-			this.atualizar(new Atributo("Sabedoria", this.procurar("Destreza").getValor()+1));
-			this.atualizar(new Atributo("Carisma", this.procurar("Destreza").getValor()+1));
+			this.atualizar(new Atributo("Constituicao", this.procurar("Constituicao").getValor()+1));
+			this.atualizar(new Atributo("Inteligencia", this.procurar("Inteligencia").getValor()+1));
+			this.atualizar(new Atributo("Sabedoria", this.procurar("Sabedoria").getValor()+1));
+			this.atualizar(new Atributo("Carisma", this.procurar("Carisma").getValor()+1));
 			break;
 		case "Anao":
 			this.inserir(new Atributo2("Velocidade", 6));
@@ -96,7 +96,7 @@ public class RepositorioAtributosArray implements RepositorioAtributos{
 		return false;
 	}
 	public String saida(String inicial){
-		for (int i = 0; i < atributos.length; i++) {
+		for (int i = 0; i < atributos.length && atributos[i] != null; i++) {
 			inicial += atributos[i].getNome()+": "+atributos[i].getValor();
 			switch (atributos[i].getNome()) {
 			case "Forca":

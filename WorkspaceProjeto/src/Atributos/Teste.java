@@ -21,7 +21,7 @@ public class Teste {
 		}
 		catch(ANEException k) {
 			System.out.println(k.getMessage());
-			System.out.println("Atributo errado: "+k.getAE());
+			System.out.println("Atributo errado/ausente: "+k.getAE());
 		}
 		catch(CNEException j) {
 			System.out.println(j.getMessage());
