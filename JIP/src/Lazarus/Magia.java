@@ -1,3 +1,5 @@
+package Lazarus;
+
 public class Magia {
 	private String nome;
 	private int id;
